@@ -72,8 +72,10 @@ for (@x) {
 tie %x, 'Spreadsheet::TieExcel::Hash';
 
 ok (1, 'Tied a hash');
-ok ($x{'foo'} = [12, 4], 'Assigned a range to a hash element');
-ok ($x{'foo'} = foo, 'assigned to the element');
+$x{'foo'} = [12, 4];
+ok (1, 'Assigned a range to a hash element');
+$x{'foo'} = 'foo';
+ok (1 , 'assigned to the element');
 ok ($x{'foo'} eq foo, 'read the element');
 $X->row(12), $X->column(4);
 

@@ -1,6 +1,6 @@
 package Spreadsheet::TieExcel;
 
-our $VERSION = '0.7';
+our $VERSION = '0.71';
 
 use strict;
 use warnings;
@@ -34,9 +34,6 @@ sub getRange {
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # No range? return current selection
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#     my $xl = Win32::OLE->GetActiveObject('Excel.Application') or
-# 	croak "Couldn't find an active Excel application";
 
     unless ($range) {
 	return $xl->Selection ||
