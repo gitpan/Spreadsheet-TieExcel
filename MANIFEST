@@ -1,4 +1,5 @@
 MANIFEST
 TieExcel.pm
 TieExcel.pod
+Changes
 test.pl
