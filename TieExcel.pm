@@ -1,6 +1,7 @@
 package Spreadsheet::TieExcel;
 
-our $VERSION = '0.72';
+our $VERSION = '0.73';
+our $DEBUG = 1;
 
 use strict;
 use warnings;
@@ -43,7 +44,7 @@ sub getRange {
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # Got a range: let's check what it is
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+
     my ($row, $col, $sheet, $width, $height);
 
     for (ref $range) {
@@ -229,7 +230,7 @@ sub DESTROY {
 
 1;
 
-}    
+}
 
 {
 
@@ -282,17 +283,25 @@ use overload
     '+' => sub { shift->move(shift, 0) },
     '-' => sub { shift->move(-shift, 0) };
 
+sub _tor_move {
+    my ($row, $move, $max) = @_;
+    return (((($row - 1) + $move) % $max) + 1);
+
+}
+
 sub move {
     my $self = shift;
 
-    my $row = ($self->{range}->Row + $_[0]) % $self->{range}->Worksheet->Rows->Count;
-    my $col = $self->{range}->Column + $_[1] % $self->{range}->Worksheet->Columns->Count;
+    my ($row, $col);
+
+    $row = &_tor_move ($self->{range}->Row, $_[0], $self->{range}->Worksheet->Rows->Count);
+    $col = &_tor_move ($self->{range}->Column,  $_[1], $self->{range}->Worksheet->Columns->Count);
 
     $self->{range} = $self->{range}->Worksheet->Cells($row, $col);
 }
 
 sub set {
-    my $self = shift;    
+    my $self = shift;
     my $val = pop @_;
     eval '$self->{range}->{' . (join '}->{', @_) . '} = $val';
 }

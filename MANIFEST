@@ -1,5 +1,5 @@
 MANIFEST
+Makefile.PL
 TieExcel.pm
 TieExcel.pod
-Changes
 test.pl

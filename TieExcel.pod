@@ -212,8 +212,8 @@ Simone Cesano simonecesano@libero.it
 
 =head1 Copyright
 
-Copyright  (c), Simone Cesano.  All Rights  Reserved.  This  module is
-free software. It may be used, redistributed and/or modified under the
-same terms as Perl itself.
+Copyright (c) 2003, Simone  Cesano.  All Rights Reserved.  This module
+is free software. It may  be used, redistributed and/or modified under
+the same terms as Perl itself.
 
 =cut
