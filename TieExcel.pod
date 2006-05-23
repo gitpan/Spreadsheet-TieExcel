@@ -34,21 +34,21 @@ The range which will be tied can be specified in different ways:
 by passing a valid Excel range to the tie function:
 
      $range = Win32::OLE->GetActiveObject('Excel.Application')->Selection;
-     tie @xl, Spreadsheet::TieExcel::Array, $range;
+     tie @xl, 'Spreadsheet::TieExcel::Array', $range;
 
 =item *
 
 by passing  it an  array, or an  arrayref containing row,  column, and
 optionally sheet name.
 
-     tie @xl, Spreadsheet::TieExcel::Array, 1, 1, 'Sheet3';
+     tie @xl, 'Spreadsheet::TieExcel::Array', 1, 1, 'Sheet3';
 
 =item *
 
 by passing it a hashref,  containing row, column, and optionally sheet
 name, width and height of range to be used
 
-     tie @xl, Spreadsheet::TieExcel::Array, {
+     tie @xl, 'Spreadsheet::TieExcel::Array', {
 	                          row => 1,
 	                          column => 1,
 	                          width => 4,
@@ -215,5 +215,9 @@ Simone Cesano simonecesano@libero.it
 Copyright (c) 2003, Simone  Cesano.  All Rights Reserved.  This module
 is free software. It may  be used, redistributed and/or modified under
 the same terms as Perl itself.
+
+=head1 Thanks
+
+Thanks to Brad Shaw and ikegami for 'strict' fixes and highligthing beginner's errors.
 
 =cut

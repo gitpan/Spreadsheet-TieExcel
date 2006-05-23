@@ -1,6 +1,6 @@
 package Spreadsheet::TieExcel;
 
-our $VERSION = '0.73';
+our $VERSION = '0.74';
 our $DEBUG = 1;
 
 use strict;
@@ -360,8 +360,6 @@ use strict;
 use Carp;
 
 use Spreadsheet::TieExcel;
-
-$\ = "\n"; $, = "\t";
 
 sub TIEHASH {
     my $class = shift;
