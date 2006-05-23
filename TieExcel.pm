@@ -1,6 +1,6 @@
 package Spreadsheet::TieExcel;
 
-our $VERSION = '0.74';
+our $VERSION = '0.75';
 our $DEBUG = 1;
 
 use strict;
@@ -353,8 +353,6 @@ sub AUTOLOAD {
 {
 
 package Spreadsheet::TieExcel::Hash;
-
-our $VERSION = '0.3';
 
 use strict;
 use Carp;
